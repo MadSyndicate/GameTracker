@@ -1,12 +1,11 @@
-
-//
-
 #include <iostream>
+#include <string>
 #include "match.h"
 using namespace std;
 
 int test_reason = 0;
-char anwser;
+bool test_FB;
+string anwser;
 
 int main(void)
 {
@@ -20,6 +19,17 @@ int main(void)
 	cout << test_reason << endl;
 	cout << "and, did it work?" << endl << endl;
 	cin >> anwser;
+
+	cout << "Allright, we try a diffrent one. Did u got FB? (pls)" << endl;
+	test_FB = Game.get_FB_Lane();
+	cout << test_FB << ". hm... aaaaaaand now?" << endl;
+	Game.set_FB_Lane_true();
+	cout << test_FB << endl << "and what now?" << endl;
+	cin >> test_reason;
+
+	
+
+
 	return 0;
 }
 

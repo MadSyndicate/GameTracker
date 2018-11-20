@@ -83,3 +83,10 @@ void AddMatch::set_playstyle(int play) {
 int AddMatch::get_myChamp() {
 	return myChamp;
 }
+
+//----
+
+
+bool AddMatch::get_FB_Lane() {
+	return FB_Lane;
+}
