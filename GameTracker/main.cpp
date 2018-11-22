@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "match.h"
+#include "ChampionLoader.h"
 using namespace std;
 
 int test_reason = 0;
@@ -10,6 +11,8 @@ char anwser;
 
 int main(void)
 {
+	ChampionLoader loader;
+	loader.loadChampions();
 	cout << "Hello guys, welcome to the test realm" << endl;
 	AddMatch Game{};
 	test_reason = Game.get_myChamp();
