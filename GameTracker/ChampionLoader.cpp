@@ -16,16 +16,21 @@ ChampionLoader::~ChampionLoader()
 {
 }
 
-void ChampionLoader::loadChampions()
+pplx::task<std::vector<std::wstring>> ChampionLoader::loadChampionsAsync()
 {
-	this->requestChampionJSONAsync()
-	.then([](pplx::task<json::value> jsonTask)
+	return this->requestChampionJSONAsync()
+	.then([](pplx::task<json::value> jsonTask) -> pplx::task<std::vector<std::wstring>>
 	{
 		try
 		{
+			std::vector<std::wstring> championNames;
 			const json::value& v = jsonTask.get();
-			std::wstring json(v.serialize());
-			std::wcout << json << std::endl;
+			auto champions = v.at(U("data")).as_object();
+			for (auto champ : champions) {
+				std::wstring name = champ.second.at(U("name")).as_string();
+				championNames.push_back(name);
+			}
+			return pplx::task_from_result(championNames);
 		}
 		catch (const http_exception& e)
 		{
@@ -33,10 +38,13 @@ void ChampionLoader::loadChampions()
 			std::wostringstream ss;
 			ss << e.what() << std::endl;
 			std::wcout << ss.str();
+			return pplx::task_from_result(std::vector<std::wstring>());
 		}
 	});
-	
+}
 
+std::vector<std::wstring> ChampionLoader::loadChampions() {
+	return this->loadChampionsAsync().get();
 }
 
 pplx::task<json::value> ChampionLoader::requestChampionJSONAsync()

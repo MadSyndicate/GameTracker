@@ -12,8 +12,9 @@ char anwser;
 int main(void)
 {
 	ChampionLoader loader;
-	loader.loadChampions();
+	auto champions = loader.loadChampions();
 	cout << "Hello guys, welcome to the test realm" << endl;
+	cout << "There are " << champions.size() << " known champions" << endl;
 	AddMatch Game{};
 	test_reason = Game.get_myChamp();
 	cout << test_reason;

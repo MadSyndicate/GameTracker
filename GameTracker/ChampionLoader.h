@@ -8,7 +8,8 @@ class ChampionLoader
 public:
 	ChampionLoader();
 	~ChampionLoader();
-	void loadChampions();
+	std::vector<std::wstring> loadChampions();
+	pplx::task<std::vector<std::wstring>> loadChampionsAsync();
 private:
 	pplx::task<web::json::value> requestChampionJSONAsync();
 };
