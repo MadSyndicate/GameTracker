@@ -26,7 +26,7 @@ AddMatch::AddMatch()
 
 // ---------------------------------- definition of elementals -----------------------------------------------
 
-
+// --------------------- set-functions -------------------------
 
 void AddMatch::set_myChamp(int iChamp) {
 	myChamp = iChamp;
@@ -80,13 +80,67 @@ void AddMatch::set_playstyle(int play) {
 	playstyle = play;
 }
 
+// --------------------- get-functions -------------------------
+
 int AddMatch::get_myChamp() {
 	return myChamp;
 }
 
-//----
-
+int AddMatch::get_enemyChamp() {
+	return enemyChamp;
+}
 
 bool AddMatch::get_FB_Lane() {
 	return FB_Lane;
+}
+
+int AddMatch::get_myFarm() {
+	return my_Farm;
+}
+
+int AddMatch::get_enemyFarm() {
+	return enemy_Farm;
+}
+
+float AddMatch::get_myXP() {
+	return my_XP;
+}
+
+float AddMatch::get_enemyXP() {
+	return enemy_XP;
+}
+
+bool AddMatch::get_wonLane() {
+	return won_lane;
+}
+
+int AddMatch::get_reasonWon() {
+	return reason_win;
+}
+
+int AddMatch::get_reasonLose() {
+	return reason_lose;
+}
+
+int AddMatch::get_playstyle() {
+	return playstyle;
+}
+
+// --------------------- test-functions -------------------------
+
+void AddMatch::print() {
+	
+	cout << "Die wichtigsten Stats auf einen Blick: " << endl;
+	cout << "Dein Champ: " << get_myChamp() << endl;
+	cout << "Gegner    : " << get_enemyChamp() << endl;
+	cout << "Du hattest FB: " << get_FB_Lane() << endl;
+	cout << "Dein Farm: " << get_myFarm() << endl;
+	cout << "Gegner-Farm: " << get_enemyFarm() << endl;
+	cout << "Deine XP: " << get_myXP() << endl;
+	cout << "Gegner-XP: " << get_enemyXP() << endl;
+	cout << "Lane gewonnen: " << get_wonLane() << endl;
+	cout << "Grund für Win: " << get_reasonWon() << endl;
+	cout << "Grund für Lose: " << get_reasonLose() << endl;
+	cout << "Playstyle: " << get_playstyle() << endl;
+	cout << "Danke für die Nutzung" << endl << endl;
 }

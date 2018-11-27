@@ -55,5 +55,7 @@ public:
 	int get_reasonLose();	// { return reason_lose; };
 	int get_playstyle();	// { return playstyle; };
 
+	void print();	// for testing
+
 };
 #endif

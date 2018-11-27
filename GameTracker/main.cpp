@@ -3,32 +3,28 @@
 #include "match.h"
 using namespace std;
 
-int test_reason = 0;
+int test_reason;
 bool test_FB;
 string anwser;
 
 int main(void)
 {
 	cout << "Hello guys, welcome to the test realm" << endl;
-	AddMatch Game{};
-	test_reason = Game.get_myChamp();
-	cout << test_reason;
-	cout << "So currently ur playing Annie" << endl;
-	cout << "and now it should turn to Alistar" << endl;
-	Game.set_myChamp(4);
-	cout << test_reason << endl;
-	cout << "and, did it work?" << endl << endl;
-	cin >> anwser;
-
-	cout << "Allright, we try a diffrent one. Did u got FB? (pls)" << endl;
-	test_FB = Game.get_FB_Lane();
-	cout << test_FB << ". hm... aaaaaaand now?" << endl;
-	Game.set_FB_Lane_true();
-	cout << test_FB << endl << "and what now?" << endl;
-	cin >> test_reason;
-
 	
+	AddMatch Game{};
+	Game.print();
+	
+	cout << "And now we change some things :)" << endl;
+	
+	Game.set_myChamp(56);
+	Game.set_enemyChamp(12);
+	Game.set_FB_Lane_true();
+	Game.set_wonLane();
+	Game.set_reasonWon(1);
+	Game.print();			//changes baby
 
+	cout << "And? Was it good?" << endl;
+	cin >> anwser;
 
 	return 0;
 }
