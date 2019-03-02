@@ -115,9 +115,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="ChampionLoader.h" />
     <ClInclude Include="match.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="ChampionLoader.cpp" />
     <ClCompile Include="match.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
